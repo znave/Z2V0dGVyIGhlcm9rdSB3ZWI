@@ -33,7 +33,7 @@
             "description": "Input this Heroku app name.",
             "required": true
         },
-        "HEROKU_API_KEY": {
+        "HEROKU_API": {
             "description": "Get a Heroku API Key from \"dashboard.heroku.com/account\"",
             "required": true
         }
