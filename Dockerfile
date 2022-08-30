@@ -66,7 +66,6 @@ ENV PATH=$VIRTUAL_ENV/bin:/home/app/.local/bin:/home/app/$PROJECT/bin:$PATH \
 RUN set -ex \
     && git clone -b $BRANCH https://github.com/$ORG/$PROJECT /home/app/$PROJECT \
     && cp -rf .config /home/app \
-    && rm -rf -- .github docs README.md .editorconfig strgen.py \
     && python3 -m pip install -U pip \
     && python3 -m venv $VIRTUAL_ENV \
     && pip3 install --no-cache-dir -r https://raw.githubusercontent.com/$ORG/$PROJECT/$BRANCH/requirements.txt \
