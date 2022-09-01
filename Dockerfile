@@ -21,7 +21,6 @@ RUN set -ex \
     && apt-get -qqy update \
     && apt-get -qqy install --no-install-recommends \
         sudo \
-        bash \
         gnupg2 \
         git \
         curl \
@@ -43,10 +42,9 @@ RUN set -ex \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && dpkg-reconfigure --force -f noninteractive tzdata \
     && groupadd -g 1000 app \
-    && useradd -u 1000 -ms /bin/bash -g app app \
+    && useradd -u 1000 -ms /bin/sh -g app app \
     && echo "app ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/app \
     && chmod 0440 /etc/sudoers.d/app \
-    && mkdir -p /home/app/$PROJECT/bin \
     && chmod 777 /home/app/$PROJECT \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
@@ -65,7 +63,7 @@ ENV PATH=$VIRTUAL_ENV/bin:/home/app/.local/bin:/home/app/$PROJECT/bin:$PATH \
     DISPLAY=:99
 
 RUN set -ex \
-    && git clone -b $BRANCH https://github.com/$ORG/$PROJECT /home/app/$PROJECT \
+    && git clone -b $BRANCH https://github.com/$ORG/$PROJECT . \
     && cp -rf .config /home/app \
     && python3 -m pip install -U pip \
     && python3 -m venv $VIRTUAL_ENV \
