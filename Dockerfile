@@ -33,6 +33,7 @@ RUN set -ex \
         locales \
         tzdata \
         ffmpeg \
+        cairosvg \
         libjpeg-dev \
         libpng-dev \
         unzip \
