@@ -13,7 +13,7 @@
             "required": true
         },
         "BOTLOGS": {
-            "description": "If you already have the BOTLOGS group then use this by change 0 to your BOTLOGS group id e.g: -100xxx or skip this to use autopilot instantly!",
+            "description": "Your BOTLOGS group id e.g: -100xxx or skip this to use autopilot instantly. YOU NOT UNDERSTAND? THEN DO NOT CHANGE 0 !!",
             "required": false,
             "value": "0"
         },
