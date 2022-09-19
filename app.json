@@ -18,7 +18,7 @@
             "value": "0"
         },
         "HANDLER": {
-            "description": "Initial command handler (prefix), supported characters \"github.com/kastaid/getter/blob/main/getter/config.py#L55\". Default: [ . ]",
+            "description": "Initial command handler (prefix), supported characters \"github.com/kastaid/getter/blob/main/getter/config.py\". Default: [ . ]",
             "required": false,
             "value": "."
         },
