@@ -53,8 +53,7 @@ RUN set -ex \
     && unzip -qq ~/chromedriver_linux64.zip -d ~/ \
     && rm -rf ~/chromedriver_linux64.zip \
     && mv -f ~/chromedriver /usr/bin/chromedriver \
-    && chown root:root /usr/bin/chromedriver \
-    && chmod 0755 /usr/bin/chromedriver \
+    && chmod +x /usr/bin/chromedriver \
     && git clone -qb $BRANCH https://github.com/$ORG/$PROJECT . \
     && cp -rf .config ~/ \
     && python3 -m pip install -Uq pip \
