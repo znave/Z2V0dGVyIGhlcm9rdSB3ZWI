@@ -50,20 +50,21 @@ RUN set -ex \
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && apt-get -qqy update \
     && apt-get -qqy install --no-install-recommends google-chrome-stable \
+    && command -v google-chrome \
+    && $(command -v google-chrome) --version \
     && wget -qN https://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip -P ~/ \
     && unzip -qq ~/chromedriver_linux64.zip -d ~/ \
     && rm -rf ~/chromedriver_linux64.zip \
     && mv -f ~/chromedriver /usr/bin/chromedriver \
     && chmod +x /usr/bin/chromedriver \
+    && command -v chromedriver \
+    && $(command -v chromedriver) --version \
     && git clone -qb $BRANCH https://github.com/$ORG/$PROJECT . \
     && cp -rf .config ~/ \
     && python3 -m pip install -Uq pip \
     && python3 -m venv $VIRTUAL_ENV \
     && pip3 install --no-cache-dir -r https://raw.githubusercontent.com/$ORG/$PROJECT/$BRANCH/requirements.txt \
     && apt-get -qqy purge --auto-remove \
-        curl \
-        wget \
-        tzdata \
         unzip \
         build-essential \
     && apt-get -qqy clean \
