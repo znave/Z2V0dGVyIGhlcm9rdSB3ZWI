@@ -20,7 +20,6 @@ ENV PROJECT=getter \
     DISPLAY=:99
 
 WORKDIR /app
-COPY . .
 
 RUN set -ex \
     && apt-get -qqy update \
