@@ -36,6 +36,7 @@
             "required": true
         }
     },
+    "success_url": "https://t.me/kastaot",
     "stack": "container",
     "addons": [
         {
@@ -45,5 +46,10 @@
             }
         }
     ],
-    "success_url": "https://t.me/kastaot"
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": ""
+        }
+    }
 }
